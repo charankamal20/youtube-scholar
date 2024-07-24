@@ -1,0 +1,18 @@
+version: '3.9'
+
+services:
+  frontend:
+    build:
+      context: ./frontend  # This should point to the directory containing the Next.js Dockerfile
+    ports:
+      - "3000:3000"  # Host:Container
+    env_file:
+      - ./frontend/.env.local
+  backend:
+    build:
+      context: ./backend  # This should point to the directory containing the Golang Dockerfile
+    ports:
+      - "8080:8080"  # Host:Container
+    # env_file:
+    #   - ./backend/.env
+
